@@ -9,10 +9,10 @@ class Caida3 {
 
   void mostrar(){
     // Definir variables del mandala
-    float radio = min(x/3, y/3, 15); // radio máximo de 15 píxeles
+    float radio = min(x, y, 15); // radio máximo de 15 píxeles
     int num_petalos = 8; // menos pétalos para una figura más compacta
-    float centro_x = x/2;
-    float centro_y = y/2;
+    float centro_x = x;
+    float centro_y = y;
     
     // Dibujar pétalos del mandala
     for (int i = 0; i < num_petalos; i++) {

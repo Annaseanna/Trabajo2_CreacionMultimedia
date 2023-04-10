@@ -24,9 +24,9 @@ void setup(){
     puntos[i]=new PVector(positionX[randI],floor(random(1,30))*-40);
   }
 }
-void dibujarCirculo() {
-  int a;
-  a=round(random(3));
+void dibujarCirculo(int a) {
+  //int a;
+  //a=round(random(3));
   switch (a){
     case 1:
     caida1.mostrar();
@@ -50,8 +50,8 @@ void draw(){
     caida1 = new Caida1(puntos[i].x,puntos[i].y);
     caida2 = new Caida2(puntos[i].x,puntos[i].y);
     caida3 = new Caida3(puntos[i].x,puntos[i].y);
-    ellipse(puntos[i].x,puntos[i].y,30,30);
-    dibujarCirculo();
+    //ellipse(puntos[i].x,puntos[i].y,30,30);
+    dibujarCirculo(1); //aqui va el parametro que cambia las figuras
     puntos[i].y +=speed;
     if(puntos[i].y>height+15){
       puntos[i].y=floor(random(1,30))*-40;
@@ -63,6 +63,9 @@ void draw(){
         puntos[i].y=floor(random(1,30))*-40;
         score+=4;
       }
+    }
+    if(puntos[i].y > keysHeight + 50){
+      score = 0;
     }
   }
   
