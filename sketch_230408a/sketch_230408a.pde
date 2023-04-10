@@ -1,3 +1,6 @@
+import netP5.*;
+import oscP5.*;
+
 int[] positionX={200,250,300,350,400};
 boolean[] keys = {false,false,false,false,false};
 int keysHeight;
@@ -19,8 +22,15 @@ Objeto objeto4;
 Objeto objeto5;
 Objeto objeto6;
 cara2 cara2;
-
+OscP5 oscPIANO;
+OscP5 oscBASS_DRUM;
 void setup(){
+  //se crea el objeto de conexion con su numero de conexion
+  oscPIANO = new OscP5(this, 11111);
+  //leerdatos1 es la funcion para sacar los mensajes de la ventana1 
+  oscPIANO.plug(this, "leerDatos1", "/datos1");
+  
+  
   size(600,700);
   background(0);
   strokeWeight(3);
@@ -39,6 +49,25 @@ void setup(){
    objeto5=new Objeto(width*5/6,height*2/4);
    objeto6=new Objeto(width*5/6,height*3/4);
   
+}
+void leerDatos1(OscMessage oscMessage){
+  //ACA SE MIRA EL NOMBRE DEL DATO QUE SE ESTA PASANDO, EL DATO SE PASA COMO UN ARRAY PERO COMO SE PASA SOLAMENTE UN NUMERO PUES ES POSICION 0
+  if(oscMessage.checkAddrPattern("/P1")){
+    float p1 =oscMessage.get(0).floatValue();
+    println(p1);
+  }
+  else if(oscMessage.checkAddrPattern("/P2")){
+    float p2 = oscMessage.get(0).floatValue();
+    println(p2);
+  }
+  else if(oscMessage.checkAddrPattern("/P3")){
+    float p3 = oscMessage.get(0).floatValue();
+    println(p3);
+  }
+   else if(oscMessage.checkAddrPattern("/P4")){
+    float p4 = oscMessage.get(0).floatValue();
+    println(p4);
+  }
 }
 void dibujarCirculo(int a) {
   //int a;
