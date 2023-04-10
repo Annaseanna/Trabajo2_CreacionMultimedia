@@ -18,6 +18,7 @@ Objeto objeto3;
 Objeto objeto4;
 Objeto objeto5;
 Objeto objeto6;
+cara2 cara2;
 
 void setup(){
   size(600,700);
@@ -47,7 +48,7 @@ void dibujarCirculo(int a) {
     caida1.mostrar();
     break;
     case 2:
-    caida2.mostrar();
+    cara2.mostrar();
     break;  
     case 3:
     caida3.mostrar();
@@ -65,8 +66,9 @@ void draw(){
     caida1 = new Caida1(puntos[i].x,puntos[i].y);
     caida2 = new Caida2(puntos[i].x,puntos[i].y);
     caida3 = new Caida3(puntos[i].x,puntos[i].y);
+    cara2= new cara2(puntos[i].x,puntos[i].y);
     //ellipse(puntos[i].x,puntos[i].y,30,30);
-    dibujarCirculo(1); //aqui va el parametro que cambia las figuras
+    dibujarCirculo(2); //aqui va el parametro que cambia las figuras
     puntos[i].y +=speed;
     if(puntos[i].y>height+15){
       puntos[i].y=floor(random(1,30))*-40;
