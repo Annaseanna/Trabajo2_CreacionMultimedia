@@ -1,4 +1,4 @@
-int[] positionX={50,100,150,200,250};
+int[] positionX={200,250,300,350,400};
 boolean[] keys = {false,false,false,false,false};
 int keysHeight;
 int[] colums;
@@ -11,9 +11,16 @@ int y=30;
 Caida1 caida1;
 Caida2 caida2;
 Caida3 caida3;
+Objeto objeto;
+Objeto objeto1;
+Objeto objeto2;
+Objeto objeto3;
+Objeto objeto4;
+Objeto objeto5;
+Objeto objeto6;
 
 void setup(){
-  size(300,700);
+  size(600,700);
   background(0);
   strokeWeight(3);
   rectMode(CENTER);
@@ -23,6 +30,14 @@ void setup(){
     int randI=floor(random(5));
     puntos[i]=new PVector(positionX[randI],floor(random(1,30))*-40);
   }
+   objeto=new Objeto(width*1/6,height*1/5);
+   objeto1=new Objeto(width*1/6,height*2/5);
+   objeto2=new Objeto(width*1/6,height*3/5);
+   objeto3=new Objeto(width*1/6,height*4/5);
+   objeto4=new Objeto(width*5/6,height*1/4);
+   objeto5=new Objeto(width*5/6,height*2/4);
+   objeto6=new Objeto(width*5/6,height*3/4);
+  
 }
 void dibujarCirculo(int a) {
   //int a;
@@ -85,7 +100,21 @@ void draw(){
   textAlign(CENTER, CENTER);
   textSize(16);
   text("Puntos: " + score, width/2, keysHeight + 50);
-
+  // Dibujar el circulo
+  objeto.mostrar();
+  objeto.onda(random(1,150));
+  objeto1.mostrar();
+  objeto1.onda(random(1,150));
+  objeto2.mostrar();
+  objeto2.onda(random(1,150));
+  objeto3.mostrar();
+  objeto3.onda(random(1,150));
+  objeto4.mostrar();
+  objeto4.onda(random(1,150));
+  objeto5.mostrar();
+  objeto5.onda(random(1,150));
+  objeto6.mostrar();
+  objeto6.onda(random(1,150));
 }
 
 
