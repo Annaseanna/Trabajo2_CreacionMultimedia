@@ -92,7 +92,7 @@ void dibujarCirculo(int a) {
     cara2.mostrar();
     break;  
     case 3:
-    caida3.mostrar();
+    caida2.mostrar();
     break;    
   }
 }
@@ -109,7 +109,7 @@ void draw(){
     caida3 = new Caida3(puntos[i].x,puntos[i].y);
     cara2= new cara2(puntos[i].x,puntos[i].y);
     //ellipse(puntos[i].x,puntos[i].y,30,30);
-    dibujarCirculo(2); //aqui va el parametro que cambia las figuras
+    dibujarCirculo(3); //aqui va el parametro que cambia las figuras
     puntos[i].y +=speed;
     if(puntos[i].y>height+15){
       puntos[i].y=floor(random(1,30))*-40;
