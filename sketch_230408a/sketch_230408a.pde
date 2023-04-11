@@ -11,6 +11,8 @@ PVector[] puntos=new PVector[nPuntos];
 int score=0;
 int x=30;
 int y=30;
+float p1;
+
 Caida1 caida1;
 Caida2 caida2;
 Caida3 caida3;
@@ -23,12 +25,11 @@ Objeto objeto5;
 Objeto objeto6;
 cara2 cara2;
 OscP5 oscPIANO;
-OscP5 oscBASS_DRUM;
 void setup(){
   //se crea el objeto de conexion con su numero de conexion
   oscPIANO = new OscP5(this, 11111);
   //leerdatos1 es la funcion para sacar los mensajes de la ventana1 
-  oscPIANO.plug(this, "leerDatos1", "/datos1");
+  //oscPIANO.plug(this, "leerDatos1", "/datos1");
   
   
   size(600,700);
@@ -50,23 +51,34 @@ void setup(){
    objeto6=new Objeto(width*5/6,height*3/4);
   
 }
-void leerDatos1(OscMessage oscMessage){
+void oscEvent(OscMessage oscMessage){
   //ACA SE MIRA EL NOMBRE DEL DATO QUE SE ESTA PASANDO, EL DATO SE PASA COMO UN ARRAY PERO COMO SE PASA SOLAMENTE UN NUMERO PUES ES POSICION 0
   if(oscMessage.checkAddrPattern("/P1")){
-    float p1 =oscMessage.get(0).floatValue();
+    p1 =oscMessage.get(0).floatValue();
+    //p1 = map(oscMessage.get(0).floatValue(), 76, 85, 75, 100);
+    println(" addrpattern: "+oscMessage.addrPattern());
     println(p1);
   }
-  else if(oscMessage.checkAddrPattern("/P2")){
-    float p2 = oscMessage.get(0).floatValue();
-    println(p2);
+   else if(oscMessage.checkAddrPattern("/H1")){
+    float h1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
+    //println(p4);
   }
-  else if(oscMessage.checkAddrPattern("/P3")){
-    float p3 = oscMessage.get(0).floatValue();
-    println(p3);
+
+   else if(oscMessage.checkAddrPattern("/B1")){
+    float b1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
+    //println(p4);
   }
-   else if(oscMessage.checkAddrPattern("/P4")){
-    float p4 = oscMessage.get(0).floatValue();
-    println(p4);
+   else if(oscMessage.checkAddrPattern("/BA1")){
+    float ba1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
+    //println(p4);
+  }
+   else if(oscMessage.checkAddrPattern("/M1")){
+    float m1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
+    //println(p4);
   }
 }
 void dibujarCirculo(int a) {
@@ -133,19 +145,22 @@ void draw(){
   text("Puntos: " + score, width/2, keysHeight + 50);
   // Dibujar el circulo
   objeto.mostrar();
-  objeto.onda(random(1,150));
+  if (p1!=0){
+      objeto.onda(p1);
+     
+  }
   objeto1.mostrar();
-  objeto1.onda(random(1,150));
+  //objeto1.onda(random(1,150));
   objeto2.mostrar();
-  objeto2.onda(random(1,150));
+  //objeto2.onda(random(1,150));
   objeto3.mostrar();
-  objeto3.onda(random(1,150));
+ // objeto3.onda(random(1,150));
   objeto4.mostrar();
-  objeto4.onda(random(1,150));
+  //objeto4.onda(random(1,150));
   objeto5.mostrar();
-  objeto5.onda(random(1,150));
+ // objeto5.onda(random(1,150));
   objeto6.mostrar();
-  objeto6.onda(random(1,150));
+  //objeto6.onda(random(1,150));
 }
 
 
