@@ -1,3 +1,5 @@
+
+
 class Caida2 {
   float x;
   float y;
@@ -6,43 +8,37 @@ class Caida2 {
     y=y_;
   }
   void mostrar() {
-
-  // Cuerpo
-  noStroke();
-  fill(255, 221, 202); // Color piel
-  ellipse(x,y, 10, 10);
-
-  // Vestido
-  fill(255, 0, 127); // Color rosa
-  rect(x - 5, y + 3, 10, 8, 2); // Cuerpo del vestido
-  rect(x - 7, y + 3, 4, 8, 2); // Manga izquierda
-  rect(x + 3, y + 3, 4, 8, 2); // Manga derecha
-
-  // Cabeza
-  fill(255, 221, 202); // Color piel
-  ellipse(x, y - 7, 5, 5);
-
-  // Ojos
-  fill(0); // Color negro
-  ellipse(x - 2, y - 7, 2, 2); // Ojo izquierdo
-  ellipse(x + 2, y - 7, 2, 2); // Ojo derecho
-
-  // Pestañas
-  stroke(0); // Color negro
-  strokeWeight(1);
-  line(x - 3, y - 7, x - 2, y - 8); // Pestaña izquierda
-  line(x + 3, y - 7, x + 2, y - 8); // Pestaña derecha
-
-  // Boca
-  noFill();
-  stroke(0); // Color negro
-  strokeWeight(1);
-  arc(x, y - 4, 4, 3, 0, PI); // Boca sonriente
-
-  // Brazos
-  stroke(#15E5EA); // Color rosa
-  strokeWeight(2);
-  line(x - 7, y, x - 10, y + 6); // Brazo izquierdo
-  line(x + 7, y, x + 10, y + 6); // Brazo derecho
+    // Dibuja los arcos del arcoiris
+    strokeWeight(3);
+    stroke(255, 0, 0);
+    arc(x, y, 35, 35, radians(180), radians(360));
+    stroke(75, 0, 130);
+    arc(x, y, 30, 30, radians(180), radians(360));
+    stroke(0, 0, 255);
+    arc(x, y, 25, 25, radians(180), radians(360));
+    stroke(0, 255, 0);
+    arc(x, y, 20, 20, radians(180), radians(360));
+    stroke(255, 255, 0);
+    arc(x, y, 15, 15, radians(180), radians(360));
+    stroke(255, 165, 0);
+    arc(x, y, 10, 10, radians(180), radians(360));
+    
+    // Dibuja las nubes
+    noStroke();
+    fill(255);
+    ellipse(x-15, y-23, 10, 10);
+    ellipse(x-10, y-23, 10, 10);
+    fill(#FFF81C);
+    ellipse(x+15, y-23, 10, 10);
+    stroke(#FFF81C);
+    strokeWeight(2);
+    for (int i = 0; i < 8; i++) {
+      float angle = TWO_PI / 8 * i;
+      float x1 = x+15 + cos(angle) * 3;
+      float y1 = y-23 + sin(angle) * 3;
+      float x2 = x+15 + cos(angle) * 8;
+      float y2 = y-23 + sin(angle) * 8;
+      line(x1, y1, x2, y2);
+    }
   }
 }
