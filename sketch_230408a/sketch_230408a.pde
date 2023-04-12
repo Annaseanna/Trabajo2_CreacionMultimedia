@@ -20,6 +20,7 @@ int score=0;
 int x=30;
 int y=30;
 float p1;
+int instrumento=0;
 
 Caida1 caida1;
 Caida2 caida2;
@@ -61,40 +62,45 @@ void setup(){
    objeto6=new Objeto(width*5/6,height*3/4);
   
 }
+
 void oscEvent(OscMessage oscMessage){
   //ACA SE MIRA EL NOMBRE DEL DATO QUE SE ESTA PASANDO, EL DATO SE PASA COMO UN ARRAY PERO COMO SE PASA SOLAMENTE UN NUMERO PUES ES POSICION 0
   if(oscMessage.checkAddrPattern("/P1")){
+    instrumento=1;
     p1 =oscMessage.get(0).floatValue();
     //p1 = map(oscMessage.get(0).floatValue(), 76, 85, 75, 100);
     println(" addrpattern: "+oscMessage.addrPattern());
     println(p1);
   }
    else if(oscMessage.checkAddrPattern("/H1")){
+    instrumento=2;
     float h1 = oscMessage.get(0).floatValue();
     println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
 
    else if(oscMessage.checkAddrPattern("/B1")){
+    instrumento=3;
     float b1 = oscMessage.get(0).floatValue();
     println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/BA1")){
+    instrumento=4;
     float ba1 = oscMessage.get(0).floatValue();
     println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/M1")){
+    instrumento=5;
     float m1 = oscMessage.get(0).floatValue();
     println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
 }
-void dibujarCirculo(int a) {
-  //int a;
-  //a=round(random(3));
-  switch (a){
+
+void dibujarCirculo() {
+  switch (instrumento){
     case 1:
     caida1.mostrar();
     break;
@@ -122,7 +128,7 @@ void draw(){
     caida3 = new Caida3(puntos[i].x,puntos[i].y);
     cara2= new cara2(puntos[i].x,puntos[i].y);
     //ellipse(puntos[i].x,puntos[i].y,30,30);
-    dibujarCirculo(4); //aqui va el parametro que cambia las figuras
+    dibujarCirculo(); //aqui va el parametro que cambia las figuras
     puntos[i].y +=speed;
     if(puntos[i].y>height+15){
       puntos[i].y=floor(random(1,30))*-40;

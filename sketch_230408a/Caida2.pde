@@ -1,5 +1,3 @@
-
-
 class Caida2 {
   float x;
   float y;
