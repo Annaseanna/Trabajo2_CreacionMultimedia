@@ -46,14 +46,27 @@ Mandala mandala4;
 Mandala mandala5;
 Mandala mandala6;*/
 cara2 cara2;
-OscP5 oscPIANO;
-OscP5 oscmsj;
-NetAddress myRemoteLocation;
+OscP5 oscCHEAP;
+OscP5 oscREPTILIA;
+OscP5 oscMANEATER;
+OscP5 oscmsjC;
+OscP5 oscmsjR;
+OscP5 oscmsjM;
+NetAddress myRemoteLocationC;
+NetAddress myRemoteLocationR;
+NetAddress myRemoteLocationM;
 void setup(){
   //se crea el objeto de conexion con su numero de conexion
-  oscPIANO = new OscP5(this, 11111);
-  oscmsj = new OscP5(this,12000);
-  myRemoteLocation = new NetAddress("192.168.56.1",12001);
+  oscCHEAP = new OscP5(this, 11111);
+  oscREPTILIA = new OscP5(this, 11112);
+  oscMANEATER = new OscP5(this, 11113);
+  oscmsjC = new OscP5(this,12000);
+  oscmsjR = new OscP5(this,12002);
+  oscmsjM = new OscP5(this,12004);
+  myRemoteLocationC = new NetAddress("192.168.56.1",12001);
+  myRemoteLocationR = new NetAddress("192.168.56.1",12003);
+  myRemoteLocationM = new NetAddress("192.168.56.1",12005);
+  
   //leerdatos1 es la funcion para sacar los mensajes de la ventana1 
   //oscPIANO.plug(this, "leerDatos1", "/datos1");
   //Tamaño de la pantalla
@@ -158,7 +171,9 @@ int abc8 = xxx;
 void enviar(int e){
   OscMessage myMsj = new OscMessage("/score");
   myMsj.add(e);
-  oscmsj.send(myMsj,myRemoteLocation);
+  oscmsjC.send(myMsj,myRemoteLocationC);
+  oscmsjR.send(myMsj,myRemoteLocationR);
+  oscmsjM.send(myMsj,myRemoteLocationM);
 }
 void draw(){
   background(0);
@@ -231,40 +246,43 @@ void draw(){
       }
   }
   //objeto2.mostrar(); //circulo B
-  if (p1==83 || m1 ==83){
+  if (p1==83 || p1==71 || m1 ==83 || ba1==47 || m1==71){
     abc3--;
     //mandala2.figuraMayor(80);
       objeto2.onda(60 + abc3*20,#35E3E1);
       if(abc3 == 0){
         p1=0;
         m1=0;
+        ba1=0;
         abc3=xxx;
       }
   }
   //objeto3.mostrar(); //circulo D
-  if (p1==74 || ba1==38){
+  if (p1==74 || ba1==38 || m1==74){
     abc4--;
     //mandala3.figuraMayor(80);
       objeto3.onda(60 + abc4*20,#D8F231);
       if(abc4 == 0){
+        m1=0;
         p1=0;
         ba1=0;
         abc4=xxx;
       }
   }
   //objeto4.mostrar(); //circulo E
-  if (p1==76 || ba1==40 ){
+  if (p1==76 || ba1==40 || ba1==52 || m1==76){
     abc5--;
     //mandala4.figuraMayor(80);
       objeto4.onda(60 + abc5*20,#F23175);
       if(abc5 == 0){
+        m1=0;
         p1=0;
         ba1=0;
         abc5=xxx;
       }
   }
  // objeto5.mostrar(); //G
- if (p1==80 || ba1==44 || m1==80){
+ if (p1==80 || ba1==44 || m1==80 || m1==67 || p1==67 || ba1==43){
    abc6--;
    //mandala5.figuraMayor(80);
       objeto5.onda(60 + abc6*20,#5E50E8);
@@ -276,22 +294,24 @@ void draw(){
       }
   }
   //objeto6.mostrar(); //A
-  if (ba1==45||m1==81){
+  if (p1==69 || ba1==45||m1==81 || m1==69){
     abc7--;
     //mandala6.figuraMayor(80);
     objeto6.onda(60 + abc7*20,#F01619);
     if(abc7 == 0){
+      p1=0;
       m1=0;
       ba1=0;
       abc7=xxx;
     }
   }
     //objeto6.mostrar(); //F#
-  if (p1==78||ba1==42){
+  if (p1==78||ba1==42 || p1==73 ||ba1==49 || m1==73 || m1==78){
     abc8--;
     //mandala6.figuraMayor(80);
     objeto7.onda(60 + abc8*20,#F09C16);
     if(abc8 == 0){
+      m1=0;
       p1=0;
       ba1=0;
       abc8=xxx;
