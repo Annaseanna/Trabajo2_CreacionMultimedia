@@ -37,13 +37,6 @@ Objeto objeto3;
 Objeto objeto4;
 Objeto objeto5;
 Objeto objeto6;
-Mandala mandala;
-Mandala mandala1;
-Mandala mandala2;
-Mandala mandala3;
-Mandala mandala4;
-Mandala mandala5;
-Mandala mandala6;
 cara2 cara2;
 OscP5 oscPIANO;
 void setup(){
@@ -65,21 +58,13 @@ void setup(){
     int randI=floor(random(5));
     puntos[i]=new PVector(positionX[randI],floor(random(1,30))*-40);
   }
-   objeto=new Objeto(width*1/6,height*1/5);
+   objeto=new Mandala(width*1/6,height*1/5);
    objeto1=new Objeto(width*1/6,height*2/5);
    objeto2=new Objeto(width*1/6,height*3/5);
    objeto3=new Objeto(width*1/6,height*4/5);
    objeto4=new Objeto(width*5/6,height*1/4);
    objeto5=new Objeto(width*5/6,height*2/4);
    objeto6=new Objeto(width*5/6,height*3/4);
-   
-   mandala=new Mandala(width*1/6,height*1/5);
-   mandala1=new Mandala(width*1/6,height*2/5);
-   mandala2=new Mandala(width*1/6,height*3/5);
-   mandala3=new Mandala(width*1/6,height*4/5);
-   mandala4=new Mandala(width*5/6,height*1/4);
-   mandala5=new Mandala(width*5/6,height*2/4);
-   mandala6=new Mandala(width*5/6,height*3/4);
   
 }
 
@@ -103,7 +88,7 @@ void oscEvent(OscMessage oscMessage){
     instrumento=3;
     b1 = oscMessage.get(0).floatValue();
     //println(" addrpattern: "+oscMessage.addrPattern());
-    //println("bi");
+    //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/BA1")){
     instrumento=4;
@@ -138,16 +123,6 @@ void dibujarCirculo() {
     break;     
   }
 }
-
-int xxx = 5;
-int abc1 = xxx;
-int abc2 = xxx;
-int abc3 = xxx;
-int abc4 = xxx;
-int abc5 = xxx;
-int abc6 = xxx;
-int abc7 = xxx;
-
 void draw(){
   background(0);
   stroke(255);
@@ -199,73 +174,43 @@ void draw(){
   // Dibujar el circulo
   objeto.mostrar(); //circulo bombo
   if (b1!=0){
-    abc1--;
-      objeto.onda(150,#1C62EA);
-      if(abc1 == 0){
-        b1=0;
-        abc1=xxx;
-      }
-      
+      objeto.onda(150);
+      b1=0;
   }
   objeto1.mostrar(); //circulo hi-hat
   if (h1!=0){
-    abc2--;
-      objeto1.onda(150,#48E335);
-      if(abc2 == 0){
-        h1=0;
-        abc2=xxx;
-      }
+      objeto.onda(150);
+      h1=0;
   }
   objeto2.mostrar(); //circulo B
   if (p1==83 || m1 ==83){
-    abc3--;
-      objeto2.onda(150,#35E3E1);
-      if(abc3 == 0){
-        p1=0;
-        m1=0;
-        abc3=xxx;
-      }
+      objeto.onda(150);
+      p1=0;
+      m1=0;
   }
   objeto3.mostrar(); //circulo D
   if (p1==74 || ba1==38){
-    abc4--;
-      objeto3.onda(150,#D8F231);
-      if(abc4 == 0){
-        p1=0;
-        ba1=0;
-        abc4=xxx;
-      }
+      objeto.onda(150);
+      p1=0;
+      ba1=0;
   }
   objeto4.mostrar(); //circulo E
-  if (p1==76 || ba1==40 ){
-    abc5--;
-      objeto4.onda(150,#F23175);
-      if(abc5 == 0){
-        p1=0;
-        ba1=0;
-        abc5=xxx;
-      }
+  if (p1==76 || ba1==40 ||){
+      objeto.onda(150);
+      p1=0;
+      ba1=0;
   }
   objeto5.mostrar(); //G
- if (ba1==44 || m1==80){
-   abc6--;
-      objeto5.onda(150,#5E50E8);
-      if(abc6 == 0){
-        ba1=0;
-        m1=0;
-        abc6=xxx;
-      }
+ /if (ba1==44 || m1==80){
+      objeto.onda(150);
+      ba1=0;
+      m1=0;
   }
   objeto6.mostrar(); //A
   if (ba1==45||m1==81){
-    abc7--;
-    objeto6.onda(150,#F01619);
-    if(abc7 == 0){
+      objeto.onda(150);
       m1=0;
       ba1=0;
-      abc7=xxx;
-    }
-    
   }
 }
 
