@@ -37,6 +37,13 @@ Objeto objeto3;
 Objeto objeto4;
 Objeto objeto5;
 Objeto objeto6;
+Mandala mandala;
+Mandala mandala1;
+Mandala mandala2;
+Mandala mandala3;
+Mandala mandala4;
+Mandala mandala5;
+Mandala mandala6;
 cara2 cara2;
 OscP5 oscPIANO;
 void setup(){
@@ -65,6 +72,14 @@ void setup(){
    objeto4=new Objeto(width*5/6,height*1/4);
    objeto5=new Objeto(width*5/6,height*2/4);
    objeto6=new Objeto(width*5/6,height*3/4);
+   
+   mandala=new Mandala(width*1/6,height*1/5);
+   mandala1=new Mandala(width*1/6,height*2/5);
+   mandala2=new Mandala(width*1/6,height*3/5);
+   mandala3=new Mandala(width*1/6,height*4/5);
+   mandala4=new Mandala(width*5/6,height*1/4);
+   mandala5=new Mandala(width*5/6,height*2/4);
+   mandala6=new Mandala(width*5/6,height*3/4);
   
 }
 
