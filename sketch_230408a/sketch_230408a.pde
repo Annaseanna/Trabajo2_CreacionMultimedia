@@ -172,23 +172,46 @@ void draw(){
   textSize(16);
   text("Puntos: " + score, width/2, keysHeight + 50);
   // Dibujar el circulo
-  objeto.mostrar();
-  if (p1!=0){
-      objeto.onda(p1*1.5);
-      p1=0;
+  objeto.mostrar(); //circulo bombo
+  if (b1!=0){
+      objeto.onda(150);
+      b1=0;
   }
-  objeto1.mostrar();
-  //objeto1.onda(random(1,150));
-  objeto2.mostrar();
-  //objeto2.onda(random(1,150));
-  objeto3.mostrar();
- // objeto3.onda(random(1,150));
-  objeto4.mostrar();
-  //objeto4.onda(random(1,150));
-  objeto5.mostrar();
- // objeto5.onda(random(1,150));
-  objeto6.mostrar();
-  //objeto6.onda(random(1,150));
+  objeto1.mostrar(); //circulo hi-hat
+  if (h1!=0){
+      objeto.onda(150);
+      h1=0;
+  }
+  objeto2.mostrar(); //circulo B
+  if (p1==83 || m1 ==83){
+      objeto.onda(150);
+      p1=0;
+      m1=0;
+  }
+  objeto3.mostrar(); //circulo D
+  if (p1==74 || ba1==38){
+      objeto.onda(150);
+      p1=0;
+      ba1=0;
+  }
+  objeto4.mostrar(); //circulo E
+  if (p1==76 || ba1==40 ||){
+      objeto.onda(150);
+      p1=0;
+      ba1=0;
+  }
+  objeto5.mostrar(); //G
+ /if (ba1==44 || m1==80){
+      objeto.onda(150);
+      ba1=0;
+      m1=0;
+  }
+  objeto6.mostrar(); //A
+  if (ba1==45||m1==81){
+      objeto.onda(150);
+      m1=0;
+      ba1=0;
+  }
 }
 
 
