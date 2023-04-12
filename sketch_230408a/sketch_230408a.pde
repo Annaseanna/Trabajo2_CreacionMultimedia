@@ -197,69 +197,76 @@ void draw(){
   textSize(16);
   text("Puntos: " + score, width/2, keysHeight + 50);
   // Dibujar el circulo
-  objeto.mostrar(); //circulo bombo
+  //objeto.mostrar(); //circulo bombo
   if (b1!=0){
     abc1--;
-      objeto.onda(150,#1C62EA);
+    mandala.figuraMayor(80);
+      //objeto.onda(150,#1C62EA);
       if(abc1 == 0){
         b1=0;
         abc1=xxx;
       }
       
   }
-  objeto1.mostrar(); //circulo hi-hat
+  //objeto1.mostrar(); //circulo hi-hat
   if (h1!=0){
     abc2--;
-      objeto1.onda(150,#48E335);
+    mandala1.figuraMayor(80);
+      //objeto1.onda(150,#48E335);
       if(abc2 == 0){
         h1=0;
         abc2=xxx;
       }
   }
-  objeto2.mostrar(); //circulo B
+  //objeto2.mostrar(); //circulo B
   if (p1==83 || m1 ==83){
     abc3--;
-      objeto2.onda(150,#35E3E1);
+    mandala2.figuraMayor(80);
+      //objeto2.onda(150,#35E3E1);
       if(abc3 == 0){
         p1=0;
         m1=0;
         abc3=xxx;
       }
   }
-  objeto3.mostrar(); //circulo D
+  //objeto3.mostrar(); //circulo D
   if (p1==74 || ba1==38){
     abc4--;
-      objeto3.onda(150,#D8F231);
+    mandala3.figuraMayor(80);
+      //objeto3.onda(150,#D8F231);
       if(abc4 == 0){
         p1=0;
         ba1=0;
         abc4=xxx;
       }
   }
-  objeto4.mostrar(); //circulo E
+  //objeto4.mostrar(); //circulo E
   if (p1==76 || ba1==40 ){
     abc5--;
-      objeto4.onda(150,#F23175);
+    mandala4.figuraMayor(80);
+      //objeto4.onda(150,#F23175);
       if(abc5 == 0){
         p1=0;
         ba1=0;
         abc5=xxx;
       }
   }
-  objeto5.mostrar(); //G
+ // objeto5.mostrar(); //G
  if (ba1==44 || m1==80){
    abc6--;
-      objeto5.onda(150,#5E50E8);
+   mandala5.figuraMayor(80);
+      //objeto5.onda(150,#5E50E8);
       if(abc6 == 0){
         ba1=0;
         m1=0;
         abc6=xxx;
       }
   }
-  objeto6.mostrar(); //A
+  //objeto6.mostrar(); //A
   if (ba1==45||m1==81){
     abc7--;
-    objeto6.onda(150,#F01619);
+    mandala6.figuraMayor(80);
+    //objeto6.onda(150,#F01619);
     if(abc7 == 0){
       m1=0;
       ba1=0;

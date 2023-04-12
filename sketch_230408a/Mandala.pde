@@ -23,24 +23,24 @@ color[] colors  = {
   color1, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11
 };
 
-void figuraMayor(){
+void figuraMayor(int amplitud){
   int a=int(random(1,3));
   int b=int(random(1,11));
   switch(a){  
         case 1:
           fill(colors[b]);
           noStroke();
-          square(x-40,y-40,80);
+          square(x-(amplitud/2),y-(amplitud/2),amplitud);
           break;
         case 2:
           fill(colors[b]);
           noStroke();
-          circle(x,y,80);
+          circle(x,y,amplitud);
           break;
         case 3:
           fill(colors[b]);
           noStroke();
-          quad(x,y-40,x+40,y,x,y+40,x-40,y);
+          quad(x,y-(amplitud/2),x+(amplitud/2),y,x,y+(amplitud/2),x-(amplitud/2),y);
         break;
       }
    }
