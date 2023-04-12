@@ -20,15 +20,12 @@ int score=0;
 int x=30;
 int y=30;
 float p1;
-float h1;
-float b1;
-float m1;
-float ba1;
 int instrumento=0;
 
 Caida1 caida1;
 Caida2 caida2;
 Caida3 caida3;
+Caida4 caida4;
 Objeto objeto;
 Objeto objeto1;
 Objeto objeto2;
@@ -73,32 +70,32 @@ void oscEvent(OscMessage oscMessage){
     instrumento=1;
     p1 =oscMessage.get(0).floatValue();
     //p1 = map(oscMessage.get(0).floatValue(), 76, 85, 75, 100);
-    //println(" addrpattern: "+oscMessage.addrPattern());
-    //println(p1);
+    println(" addrpattern: "+oscMessage.addrPattern());
+    println(p1);
   }
    else if(oscMessage.checkAddrPattern("/H1")){
     instrumento=2;
-    h1 = oscMessage.get(0).floatValue();
-    //println(" addrpattern: "+oscMessage.addrPattern());
+    float h1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
 
    else if(oscMessage.checkAddrPattern("/B1")){
     instrumento=3;
-    b1 = oscMessage.get(0).floatValue();
-    //println(" addrpattern: "+oscMessage.addrPattern());
+    float b1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/BA1")){
     instrumento=4;
-    ba1 = oscMessage.get(0).floatValue();
-    //println(" addrpattern: "+oscMessage.addrPattern());
+    float ba1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/M1")){
     instrumento=5;
-    m1 = oscMessage.get(0).floatValue();
-    //println(" addrpattern: "+oscMessage.addrPattern());
+    float m1 = oscMessage.get(0).floatValue();
+    println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
 }
@@ -116,7 +113,10 @@ void dibujarCirculo() {
     break;    
     case 4:
     caida3.mostrar();
-    break;   
+    break; 
+    case 5:
+    caida4.mostrar();
+    break;     
   }
 }
 void draw(){
@@ -130,6 +130,7 @@ void draw(){
     caida1 = new Caida1(puntos[i].x,puntos[i].y);
     caida2 = new Caida2(puntos[i].x,puntos[i].y);
     caida3 = new Caida3(puntos[i].x,puntos[i].y);
+    caida4 = new Caida4(puntos[i].x,puntos[i].y);
     cara2= new cara2(puntos[i].x,puntos[i].y);
     //ellipse(puntos[i].x,puntos[i].y,30,30);
     dibujarCirculo(); //aqui va el parametro que cambia las figuras
