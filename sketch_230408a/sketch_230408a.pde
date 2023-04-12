@@ -88,7 +88,7 @@ void oscEvent(OscMessage oscMessage){
     instrumento=3;
     b1 = oscMessage.get(0).floatValue();
     //println(" addrpattern: "+oscMessage.addrPattern());
-    println("bi");
+    //println("bi");
   }
    else if(oscMessage.checkAddrPattern("/BA1")){
     instrumento=4;
@@ -124,7 +124,15 @@ void dibujarCirculo() {
   }
 }
 
-int abc = 3;
+int xxx = 5;
+int abc1 = xxx;
+int abc2 = xxx;
+int abc3 = xxx;
+int abc4 = xxx;
+int abc5 = xxx;
+int abc6 = xxx;
+int abc7 = xxx;
+
 void draw(){
   background(0);
   stroke(255);
@@ -176,46 +184,73 @@ void draw(){
   // Dibujar el circulo
   objeto.mostrar(); //circulo bombo
   if (b1!=0){
+    abc1--;
       objeto.onda(150,#1C62EA);
-      b1=0;
+      if(abc1 == 0){
+        b1=0;
+        abc1=xxx;
+      }
+      
   }
   objeto1.mostrar(); //circulo hi-hat
   if (h1!=0){
+    abc2--;
       objeto1.onda(150,#48E335);
-      h1=0;
+      if(abc2 == 0){
+        h1=0;
+        abc2=xxx;
+      }
   }
   objeto2.mostrar(); //circulo B
   if (p1==83 || m1 ==83){
+    abc3--;
       objeto2.onda(150,#35E3E1);
-      p1=0;
-      m1=0;
+      if(abc3 == 0){
+        p1=0;
+        m1=0;
+        abc3=xxx;
+      }
   }
   objeto3.mostrar(); //circulo D
   if (p1==74 || ba1==38){
+    abc4--;
       objeto3.onda(150,#D8F231);
-      p1=0;
-      ba1=0;
+      if(abc4 == 0){
+        p1=0;
+        ba1=0;
+        abc4=xxx;
+      }
   }
   objeto4.mostrar(); //circulo E
   if (p1==76 || ba1==40 ){
+    abc5--;
       objeto4.onda(150,#F23175);
-      p1=0;
-      ba1=0;
+      if(abc5 == 0){
+        p1=0;
+        ba1=0;
+        abc5=xxx;
+      }
   }
   objeto5.mostrar(); //G
  if (ba1==44 || m1==80){
+   abc6--;
       objeto5.onda(150,#5E50E8);
-      ba1=0;
-      m1=0;
+      if(abc6 == 0){
+        ba1=0;
+        m1=0;
+        abc6=xxx;
+      }
   }
   objeto6.mostrar(); //A
   if (ba1==45||m1==81){
-    while(abc > 3){
-      
-    }
+    abc7--;
     objeto6.onda(150,#F01619);
-    m1=0;
-    ba1=0;
+    if(abc7 == 0){
+      m1=0;
+      ba1=0;
+      abc7=xxx;
+    }
+    
   }
 }
 
