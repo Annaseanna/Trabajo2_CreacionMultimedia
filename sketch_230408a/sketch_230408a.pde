@@ -1,14 +1,22 @@
+//importamos las librerias necesarias para conectar a pure data
 import netP5.*;
 import oscP5.*;
-
+//hacemos un arreglo de enteros con las posiciones de los cuadrados del guitarhero
 int[] positionX={200,250,300,350,400};
+//hacemos un arreglo de datos boleeanos que representan el estado de cada uno de los cuadrados
 boolean[] keys = {false,false,false,false,false};
+//Valor de la altura de los cuadrados
 int keysHeight;
 int[] colums;
+//Velocidad en que caen las figuras
 int speed=2;
+//Numero de figuras que caen
 int nPuntos=20;
+//arreglo de vectores con cordenadas x y y de cada punto
 PVector[] puntos=new PVector[nPuntos];
+//Puntaje asociado a la cantidad de objetos presionados
 int score=0;
+//Numeros asignados a la longitud por 
 int x=30;
 int y=30;
 float p1;
@@ -30,14 +38,16 @@ void setup(){
   oscPIANO = new OscP5(this, 11111);
   //leerdatos1 es la funcion para sacar los mensajes de la ventana1 
   //oscPIANO.plug(this, "leerDatos1", "/datos1");
-  
-  
+  //Tamaño de la pantalla
   size(600,700);
+  //Fondo negro
   background(0);
+  //Grosor de las lineas
   strokeWeight(3);
+  //Centrar las figuras
   rectMode(CENTER);
+  //Ubicar los cuadros del guitarhero en 5/6 de la pantalla
   keysHeight=height*5/6;
-  fill(89,241,245);
   for (int i=0;i<nPuntos;i++){
     int randI=floor(random(5));
     puntos[i]=new PVector(positionX[randI],floor(random(1,30))*-40);
@@ -94,6 +104,9 @@ void dibujarCirculo(int a) {
     case 3:
     caida2.mostrar();
     break;    
+    case 4:
+    caida3.mostrar();
+    break;   
   }
 }
 void draw(){
@@ -109,7 +122,7 @@ void draw(){
     caida3 = new Caida3(puntos[i].x,puntos[i].y);
     cara2= new cara2(puntos[i].x,puntos[i].y);
     //ellipse(puntos[i].x,puntos[i].y,30,30);
-    dibujarCirculo(3); //aqui va el parametro que cambia las figuras
+    dibujarCirculo(4); //aqui va el parametro que cambia las figuras
     puntos[i].y +=speed;
     if(puntos[i].y>height+15){
       puntos[i].y=floor(random(1,30))*-40;
