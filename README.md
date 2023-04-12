@@ -27,4 +27,4 @@ Para la generación de imagen, como se mencionó anteriormente nos basamos en el
 
 ## Video de muestra
 El video de muestra esta adjunto en la plataforma youtube, este es el enlace para visualizarlo (dar clic en imagen):
-[![Alt text](https://img.youtube.com/vi/AV87iawhNWo/0.jpg)](https://www.youtube.com/shorts/AV87iawhNWo)
+[![Alt text](https://img.youtu.be/mi4CNUyW67M/0.jpg)](https://youtu.be/mi4CNUyW67M)
