@@ -20,6 +20,10 @@ int score=0;
 int x=30;
 int y=30;
 float p1;
+float h1;
+float b1;
+float m1;
+float ba1;
 int instrumento=0;
 
 Caida1 caida1;
@@ -69,32 +73,32 @@ void oscEvent(OscMessage oscMessage){
     instrumento=1;
     p1 =oscMessage.get(0).floatValue();
     //p1 = map(oscMessage.get(0).floatValue(), 76, 85, 75, 100);
-    println(" addrpattern: "+oscMessage.addrPattern());
-    println(p1);
+    //println(" addrpattern: "+oscMessage.addrPattern());
+    //println(p1);
   }
    else if(oscMessage.checkAddrPattern("/H1")){
     instrumento=2;
-    float h1 = oscMessage.get(0).floatValue();
-    println(" addrpattern: "+oscMessage.addrPattern());
+    h1 = oscMessage.get(0).floatValue();
+    //println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
 
    else if(oscMessage.checkAddrPattern("/B1")){
     instrumento=3;
-    float b1 = oscMessage.get(0).floatValue();
-    println(" addrpattern: "+oscMessage.addrPattern());
+    b1 = oscMessage.get(0).floatValue();
+    //println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/BA1")){
     instrumento=4;
-    float ba1 = oscMessage.get(0).floatValue();
-    println(" addrpattern: "+oscMessage.addrPattern());
+    ba1 = oscMessage.get(0).floatValue();
+    //println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
    else if(oscMessage.checkAddrPattern("/M1")){
     instrumento=5;
-    float m1 = oscMessage.get(0).floatValue();
-    println(" addrpattern: "+oscMessage.addrPattern());
+    m1 = oscMessage.get(0).floatValue();
+    //println(" addrpattern: "+oscMessage.addrPattern());
     //println(p4);
   }
 }
