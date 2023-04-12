@@ -10,10 +10,10 @@ class Objeto{
     fill(255);
     circle(x,y,75);
   }
-  void onda(float amplitud){
+  void onda(float amplitud,color c){
     noStroke();
     //noFill();
-    fill(#15EA3E);
+    fill(c);
     rectMode(CENTER);
     circle(x,y,amplitud);
   }

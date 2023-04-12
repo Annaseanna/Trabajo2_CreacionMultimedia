@@ -88,7 +88,7 @@ void oscEvent(OscMessage oscMessage){
     instrumento=3;
     b1 = oscMessage.get(0).floatValue();
     //println(" addrpattern: "+oscMessage.addrPattern());
-    //println(p4);
+    println("bi");
   }
    else if(oscMessage.checkAddrPattern("/BA1")){
     instrumento=4;
@@ -123,6 +123,8 @@ void dibujarCirculo() {
     break;     
   }
 }
+
+int abc = 3;
 void draw(){
   background(0);
   stroke(255);
@@ -174,43 +176,46 @@ void draw(){
   // Dibujar el circulo
   objeto.mostrar(); //circulo bombo
   if (b1!=0){
-      objeto.onda(150);
+      objeto.onda(150,#1C62EA);
       b1=0;
   }
   objeto1.mostrar(); //circulo hi-hat
   if (h1!=0){
-      objeto.onda(150);
+      objeto1.onda(150,#48E335);
       h1=0;
   }
   objeto2.mostrar(); //circulo B
   if (p1==83 || m1 ==83){
-      objeto.onda(150);
+      objeto2.onda(150,#35E3E1);
       p1=0;
       m1=0;
   }
   objeto3.mostrar(); //circulo D
   if (p1==74 || ba1==38){
-      objeto.onda(150);
+      objeto3.onda(150,#D8F231);
       p1=0;
       ba1=0;
   }
   objeto4.mostrar(); //circulo E
-  if (p1==76 || ba1==40 ||){
-      objeto.onda(150);
+  if (p1==76 || ba1==40 ){
+      objeto4.onda(150,#F23175);
       p1=0;
       ba1=0;
   }
   objeto5.mostrar(); //G
- /if (ba1==44 || m1==80){
-      objeto.onda(150);
+ if (ba1==44 || m1==80){
+      objeto5.onda(150,#5E50E8);
       ba1=0;
       m1=0;
   }
   objeto6.mostrar(); //A
   if (ba1==45||m1==81){
-      objeto.onda(150);
-      m1=0;
-      ba1=0;
+    while(abc > 3){
+      
+    }
+    objeto6.onda(150,#F01619);
+    m1=0;
+    ba1=0;
   }
 }
 
