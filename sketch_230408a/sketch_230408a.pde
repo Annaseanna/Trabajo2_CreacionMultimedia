@@ -174,8 +174,8 @@ void draw(){
   // Dibujar el circulo
   objeto.mostrar();
   if (p1!=0){
-      objeto.onda(p1);
-     
+      objeto.onda(p1*1.5);
+      p1=0;
   }
   objeto1.mostrar();
   //objeto1.onda(random(1,150));
